@@ -171,7 +171,7 @@ func (c *Controller) processItem(newEvent event) error {
 		newEvent.namespace = substring[0]
 		newEvent.key = substring[1]
 	}
-
+	// @todo: adapt events for Deployments.
 	// process events based on its type
 	switch newEvent.eventType {
 	case "create":
