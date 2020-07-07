@@ -67,10 +67,10 @@ func main() {
 	informer := cache.NewSharedIndexInformer(
 		&cache.ListWatch{
 			ListFunc: func(options meta_v1.ListOptions) (runtime.Object, error) {
-				return kubeClient.CoreV1().Pods(meta_v1.NamespaceAll).List(options)
+				return kubeClient.AppsV1().Deployments(meta_v1.NamespaceAll).List(options)
 			},
 			WatchFunc: func(options meta_v1.ListOptions) (watch.Interface, error) {
-				return kubeClient.CoreV1().Pods(meta_v1.NamespaceAll).Watch(options)
+				return kubeClient.AppsV1().Deployments(meta_v1.NamespaceAll).Watch(options)
 			},
 		},
 		&api_v1.Pod{},
